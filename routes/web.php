@@ -11,6 +11,11 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+// /postsにGETリクエストが来たらPostControllerのindexメソッドを実行する
+Route::get('/posts', 'PostController@index');

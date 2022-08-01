@@ -11,11 +11,10 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
 
+
+// 雛形は以下
+// Route::リクエスト方式('URI', メソッド)
 // /postsにGETリクエストが来たらPostControllerのindexメソッドを実行する
 Route::get('/posts', 'PostController@index');
+

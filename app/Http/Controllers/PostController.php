@@ -21,7 +21,11 @@ class PostController extends Controller
         $post->fill($input)->save();        //先ほどまで空だったPostインスタンスのプロパティを、受け取ったキーごとに上書き。$post->title はタイトル、$post->bodyは本文。
         return redirect('/posts/' . $post->id);
     }
-     public function show(Post $post) {
+    public function destroy(Post $post){
+        $post->delete();
+        return redirect('/posts');
+    }
+    public function show(Post $post) {
         return view('posts/show')->with(['post' => $post]);
     }
     public function store(PostRequest $request, Post $post){

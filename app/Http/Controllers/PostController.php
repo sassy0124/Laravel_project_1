@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Post;
+use App\Category;
 
 class PostController extends Controller
 {
     public function index(Post $post) {
         return view ('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
-    public function create() {
-        return view ('posts/create');
+    public function create(Category $category) {
+        return view ('posts/create')->with(['categories'=>category->get()]);
     }
      public function edit(Post $post) {
         return view ('posts/edit')->with(['post' => $post]);
